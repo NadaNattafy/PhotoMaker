@@ -12,4 +12,16 @@ class Customer extends Model
     protected $fillable = [
         'picture'
     ];
+
+
+    public function setProfileAttribute($value){
+
+        $value;
+        $this->attributes['picture']=$value;
+    }
+
+    public function getProfileAttribute($value){
+
+        return url($value);
+    }
 }

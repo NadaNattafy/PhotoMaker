@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Helpers\Helper;
+use App\Http\Requests\Album\StoreRequest;
+use App\Models\Album;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -35,9 +37,10 @@ class AboutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        Album::creata($request->validated())
     }
 
     /**
@@ -49,6 +52,15 @@ class AboutController extends Controller
     public function show($id)
     {
         //
+
+        /**
+         *
+         *Post
+         *posts
+         *PostController
+        * posts
+        * camelCase
+         */
         // $customer= Customer::where('customer_id',$id)->get();
         $customer = Customer::where('id', $id)->get();
         return view('admin.show',compact('customer'));
